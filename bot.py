@@ -1,16 +1,18 @@
 from aiogram import Bot, Dispatcher
-#from config import BOT_TOKEN
+from TG_bot.db_orm.engine import engine
+from TG_bot.db_orm.models import User, Order, Base
 import logging
 from handlers import start, errors, form_router
 from TG_bot.logging_config import setup_logging
 import asyncio
 import aiohttp
+from TG_bot.handlers import payments
 
 from dotenv import load_dotenv
 import os
 
 load_dotenv()  # <-- ОБЯЗАТЕЛЬНО первым делом
-
+Base.metadata.create_all(bind=engine)
 
 async def on_startup(dispatcher: Dispatcher):
     dispatcher["session"] = aiohttp.ClientSession(
@@ -31,6 +33,7 @@ async def main():
     dp.include_router(start.router)
     dp.include_router(errors.router)
     dp.include_router(form_router.router)
+    dp.include_router(payments.router)
 
     await dp.start_polling(bot)
 

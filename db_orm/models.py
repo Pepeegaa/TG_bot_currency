@@ -1,5 +1,6 @@
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
-from sqlalchemy import Integer, String
+from datetime import datetime, timezone
+from sqlalchemy.orm import relationship
 
 class Base(DeclarativeBase):
     pass
@@ -15,3 +16,18 @@ class User(Base):
     language: Mapped[str | None]
     state: Mapped[str | None]
     phone: Mapped[str | None]
+
+    orders = relationship("Order", back_populates="user")
+
+class Order(Base):
+    __tablename__ = "orders"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    user_id: Mapped[int]
+    telegram_payment_id: Mapped[str]
+    amount: Mapped[int]
+    currency: Mapped[str]
+    status: Mapped[str] = mapped_column(default="paid")
+    created_at: Mapped[datetime] = mapped_column(default=datetime.utcnow)
+
+    user = relationship("User", back_populates="orders")
