@@ -7,11 +7,13 @@ import asyncio
 import aiohttp
 from TG_bot.handlers import payments, start, errors, form_router
 
-from dotenv import load_dotenv
 import os
+from dotenv import load_dotenv
+from pathlib import Path
 
-load_dotenv()  # <-- ОБЯЗАТЕЛЬНО первым делом
-Base.metadata.create_all(bind=engine)
+# Путь к .env файлу
+env_path = "C:/PyTHoN/Pycharm_proj/TG_bot/.env"
+load_dotenv(dotenv_path=env_path)
 
 async def on_startup(dispatcher: Dispatcher):
     dispatcher["session"] = aiohttp.ClientSession(
