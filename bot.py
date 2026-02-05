@@ -12,7 +12,7 @@ from dotenv import load_dotenv
 from pathlib import Path
 
 # Путь к .env файлу
-env_path = "C:/PyTHoN/Pycharm_proj/TG_bot/.env"
+env_path = Path(__file__).parent / ".env"
 load_dotenv(dotenv_path=env_path)
 
 # Получаем токен и ключи
