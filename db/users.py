@@ -1,4 +1,4 @@
-from TG_bot_currency.db.connection import get_connection
+from TG_bot.db.connection import get_connection
 
 def add_user(telegram_id, username):
     conn = get_connection()

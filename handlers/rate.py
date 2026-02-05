@@ -1,7 +1,7 @@
 from aiogram import Router
 from aiogram.filters import Command
 from aiogram.types import Message
-from TG_bot_currency.services.usd_rate import get_usd_rate
+from TG_bot.services.usd_rate import get_usd_rate
 
 router = Router()
 
