@@ -28,7 +28,7 @@ async def start(message: Message, state: FSMContext):
             await message.answer("Продолжаем с того места, где остановились")
             return
 
-        # если нового пользователя — начинаем с города
+        # если нет статуса - начинаем с города
         await state.set_state(Form.city)
         repo.set_user_state(telegram_id, "Form.city")
         await message.answer("Привет! В каком ты городе?")

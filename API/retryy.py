@@ -20,7 +20,7 @@ async def get_json_with_retry(
 
         except (aiohttp.ClientError, asyncio.TimeoutError) as e:
             if attempt == retries:
-                print("❌ All retries failed:", e)
+                print("All retries failed:", e)
                 return None
 
             await asyncio.sleep(delay * attempt)  # backoff

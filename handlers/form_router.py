@@ -1,6 +1,5 @@
 from aiogram import Router
 from aiogram.types import Message
-from aiogram.filters import Command
 from aiogram.fsm.context import FSMContext
 from TG_bot.states.form import Form
 from TG_bot.db_orm.repository.user_repository import UserRepository

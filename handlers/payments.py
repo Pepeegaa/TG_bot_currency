@@ -3,7 +3,6 @@ from aiogram.filters import Command
 from TG_bot.db_orm.repository.payment_repository import PaymentRepository
 from aiogram.types import PreCheckoutQuery, Message, LabeledPrice, CallbackQuery
 from aiogram import F
-import uuid
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 pay_kb = InlineKeyboardMarkup(
@@ -38,7 +37,7 @@ async def send_invoice(callback: CallbackQuery):
         provider_token="",  # ⭐ ВАЖНО: пусто
         currency="XTR",     # ⭐ Telegram Stars
         prices=[
-            LabeledPrice(label="Доступ", amount=0)
+            LabeledPrice(label="Доступ", amount=1)
         ]
     )
 
