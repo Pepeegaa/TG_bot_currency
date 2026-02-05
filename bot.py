@@ -15,6 +15,11 @@ from pathlib import Path
 env_path = "C:/PyTHoN/Pycharm_proj/TG_bot/.env"
 load_dotenv(dotenv_path=env_path)
 
+# Получаем токен и ключи
+BOT_TOKEN = os.getenv("BOT_TOKEN")
+OPENWEATHER_API_KEY = os.getenv("OPENWEATHER_API_KEY")
+API_KEY_RATE = os.getenv("API_KEY_RATE")
+
 async def on_startup(dispatcher: Dispatcher):
     dispatcher["session"] = aiohttp.ClientSession(
         timeout=aiohttp.ClientTimeout(total=5)
@@ -38,7 +43,4 @@ async def main():
 
     await dp.start_polling(bot)
 
-BOT_TOKEN = os.getenv("BOT_TOKEN")
-OPENWEATHER_API_KEY = os.getenv("OPENWEATHER_API_KEY")
-API_KEY_RATE = os.getenv("API_KEY_RATE")
 asyncio.run(main())
