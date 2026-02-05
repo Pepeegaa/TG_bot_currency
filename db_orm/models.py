@@ -1,6 +1,7 @@
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 from datetime import datetime, timezone
 from sqlalchemy.orm import relationship
+from sqlalchemy import ForeignKey
 
 class Base(DeclarativeBase):
     pass
@@ -23,7 +24,7 @@ class Order(Base):
     __tablename__ = "orders"
 
     id: Mapped[int] = mapped_column(primary_key=True)
-    user_id: Mapped[int]
+    user_id: Mapped[int] = mapped_column(ForeignKey("tg_users.id"))
     telegram_payment_id: Mapped[str]
     amount: Mapped[int]
     currency: Mapped[str]

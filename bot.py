@@ -43,4 +43,5 @@ async def main():
 
     await dp.start_polling(bot)
 
+Base.metadata.create_all(bind=engine)
 asyncio.run(main())
