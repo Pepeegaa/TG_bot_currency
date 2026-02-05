@@ -1,7 +1,7 @@
 from aiogram import Router
 from aiogram.types import Message
 from aiogram.fsm.context import FSMContext
-from TG_bot.states.form import Form
+from TG_bot_currency.states.form import Form
 from repository import set_user_state, update_language
 
 router = Router()

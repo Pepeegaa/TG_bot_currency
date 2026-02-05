@@ -1,5 +1,5 @@
-from TG_bot.db_orm.session import SessionLocal
-from TG_bot.db_orm.models import User
+from TG_bot_currency.db_orm.session import SessionLocal
+from TG_bot_currency.db_orm.models import User
 from sqlalchemy.exc import SQLAlchemyError
 import logging
 

@@ -1,6 +1,6 @@
 from aiogram import Router
 from aiogram.filters import Command
-from TG_bot.db_orm.repository.payment_repository import PaymentRepository
+from TG_bot_currency.db_orm.repository.payment_repository import PaymentRepository
 from aiogram.types import Message
 
 router = Router()
